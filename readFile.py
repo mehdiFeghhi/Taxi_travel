@@ -19,12 +19,13 @@ def find_feasible_edge(list_of_travel,list_of_cost_edge):
     for i in sort_of_list:
         Node_of_Start.append('S'+str(k+1)+" "+i[2])
         Node_of_End.append('D'+str(k+1)+" "+i[3])
-        for c in range(k+1,size_of_list):
+        for c in range(0,size_of_list):
+        # for c in range(k+1, size_of_list):
 
-            if sort_of_list[c][0] >= list_of_cost_edge[int(i[3])-1][int(sort_of_list[c][2])-1] + i[1]:
-            # if sort_of_list[c][1] >= list_of_cost_edge[int(i[3])-1][int(sort_of_list[c][2])-1]+ \
-            #         list_of_cost_edge[int(sort_of_list[c][3])-1][int(sort_of_list[c][2])-1]\
-            #         + i[1]:
+            # if sort_of_list[c][0] >= list_of_cost_edge[int(i[3])-1][int(sort_of_list[c][2])-1] + i[1]:
+            if sort_of_list[c][1] >= list_of_cost_edge[int(i[3])-1][int(sort_of_list[c][2])-1]+ \
+                    list_of_cost_edge[int(sort_of_list[c][3])-1][int(sort_of_list[c][2])-1]\
+                    + i[1] and c != k:
                 list_of_possible_edge.append(['D'+str(k+1)+" "+i[3],'S'+str(c+1)+" "+sort_of_list[c][2]])
 
 
@@ -53,10 +54,13 @@ def find_feasible_edge_2(list_of_travel,list_of_cost_edge):
     for i in sort_of_list:
         Node_of_Start.append('S'+str(k+1)+"_"+i[2])
         Node_of_End.append('D'+str(k+1)+"_"+i[3])
-        for c in range(k+1,size_of_list):
-
-            if sort_of_list[c][0] >= list_of_cost_edge[int(i[3])-1][int(sort_of_list[c][2])-1] + i[1]:
-                print(str(sort_of_list[c][0])+">="+str(list_of_cost_edge[int(i[3])-1][int(sort_of_list[c][2])-1] + i[1]))
+        # for c in range(k+1,size_of_list):
+        for c in range(0,size_of_list):
+            if sort_of_list[c][1] >= list_of_cost_edge[int(i[3]) - 1][int(sort_of_list[c][2]) - 1] + \
+                    list_of_cost_edge[int(sort_of_list[c][3]) - 1][int(sort_of_list[c][2]) - 1] \
+                    + i[1] and c != k:
+        #     if sort_of_list[c][0] >= list_of_cost_edge[int(i[3])-1][int(sort_of_list[c][2])-1] + i[1]:
+                # print(str(sort_of_list[c][0])+">="+str(list_of_cost_edge[int(i[3])-1][int(sort_of_list[c][2])-1] + i[1]))
             # if sort_of_list[c][1] >= list_of_cost_edge[int(i[3])-1][int(sort_of_list[c][2])-1]+ \
             #         list_of_cost_edge[int(sort_of_list[c][3])-1][int(sort_of_list[c][2])-1]\
             #         + i[1]:
@@ -64,7 +68,7 @@ def find_feasible_edge_2(list_of_travel,list_of_cost_edge):
 
 
         k += 1
-    print(sort_of_list)
+    # print(sort_of_list)
 
     return list_of_possible_edge,Node_of_Start,Node_of_End,size_of_list
 
