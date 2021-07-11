@@ -1,4 +1,5 @@
 *.log
 venv/
 *.lp
-
+.idea/
+__pycache__/
