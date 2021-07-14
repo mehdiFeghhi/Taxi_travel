@@ -17,7 +17,6 @@ def question_one(list_of_possible_edge, Node_of_Start, Node_of_End, number_of_tr
 
     flowCost, flowDict = nx.network_simplex(G)
 
-    # print(flowDict)
     number_of_taxi = number_of_travel - flowDict['S0 1']['D0 1']
     print("**************")
     print(number_of_travel)
@@ -46,9 +45,6 @@ def question_two(list_of_possible_edge, Node_of_Start, Node_of_End, number_of_tr
         G.add_edge(i[0], i[1], weight=cost)
 
     flowCost, flowDict = nx.network_simplex(G)
-
-    # for k in range(len(Node_of_Start)):
-    #     flowCost += find_weight(Node_of_Start[k], Node_of_End[k], list_of_cost)
 
     number_of_taxi = number_of_travel - flowDict['S0 1']['D0 1']
     print("**************")
